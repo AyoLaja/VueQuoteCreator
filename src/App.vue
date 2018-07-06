@@ -45,7 +45,6 @@
         showError: false,
         errorMessage: '',
         quotes: [
-          '\"Sample quote\"',
           '\"If you try it!\"',
           '\"Guy behave yourself\"',
           '\"Don\'t let me slap you\"',

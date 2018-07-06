@@ -31,7 +31,7 @@
 
     .box:hover {
         border: 1px solid #ddd;
-        background-color: #b00931;
+        background-color: #ba304f;
         color: #fff;
     }
 </style>
