@@ -27,10 +27,12 @@
 
 <style>
     .box {
-        font-family: 'Arizonia', cursive;
+        font-family: 'Dancing Script', cursive;
         font-size: 20px;
+        font-weight: 700;
         color: grey;
         /*padding-top: 0.5rem;*/
+        padding: 1.25rem 0.75rem;
         border: 1px solid #fff;
         cursor: pointer;
         /*width: 250px;*/

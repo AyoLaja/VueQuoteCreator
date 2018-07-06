@@ -1,17 +1,30 @@
 <template>
-  <div class="container">
-    <br/>
-    <app-new-quote @quoteAdded="newQuote"></app-new-quote>
-    <app-all-quotes :quotes="quotes" @quoteDeleted="deleteQuote"></app-all-quotes>
-    <div class="columns">
-      <div class="column">
-       <div class="notification is-info">
-         <button class="delete"></button>
-         To delete quote, click on a quote.
-       </div>
+  <div>
+    
+      <!--<div class="columns">
+        <div class="column">
+          <div class="content">
+          <h1>Nigerian Quotes</h1>
+          </div>
+        </div>
+      </div>-->
+      
+    <div class="container">
+      <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>
+      <br/>
+      <app-new-quote @quoteAdded="newQuote"></app-new-quote>
+      <app-all-quotes :quotes="quotes" @quoteDeleted="deleteQuote"></app-all-quotes>
+      <div class="columns">
+        <div class="column">
+        <div class="notification is-info">
+          <button class="delete"></button>
+          To delete quote, click on a quote.
+        </div>
+        </div>
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -53,5 +66,10 @@
 </script>
 
 <style>
-
+  .container {
+    border: 1px solid #eee;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 25px;
+  }
 </style>
