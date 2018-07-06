@@ -16,10 +16,10 @@
       <app-all-quotes :quotes="quotes" @quoteDeleted="deleteQuote"></app-all-quotes>
       <div class="columns">
         <div class="column">
-        <div class="notification is-info">
-          <button class="delete"></button>
-          To delete quote, click on a quote.
-        </div>
+          <div class="notification is-danger" v-show="showError">
+            <button class="delete"></button>
+            <p>{{errorMessage}}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -42,6 +42,8 @@
     }, 
     data() {
       return {
+        showError: false,
+        errorMessage: '',
         quotes: [
           '\"Sample quote\"',
           '\"If you try it!\"',
@@ -55,8 +57,19 @@
     },
     methods: {
       newQuote(quote) {
-        let newQuote = `\"${quote}\"`
-        this.quotes.push(newQuote)
+        if(this.quotes.length >= this.maxQuotes) {
+          this.showError = true;
+          this.errorMessage= "You cannot add more than 10 quotes"
+        }
+        else if(quote === "" || quote === null) {
+          this.showError = true;
+          this.errorMessage= "Quote cannot be empty"
+        }
+        else {
+          let newQuote = `\"${quote}\"`
+          this.quotes.push(newQuote)
+          this.showError = false
+        }
       },
       deleteQuote(index) {
         this.quotes.splice(index, 1)
